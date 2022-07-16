@@ -1,0 +1,79 @@
+//- Part 1. Contact Creation Page
+extends layout
+
+block content
+
+  doctype html
+  html
+    head
+      title Guessing game - guess page
+    
+    body
+      .container
+        .col
+          div(id="logoutlink")
+            a(href='./logout').btn.btn-secondary Logout
+        .col.col-md11
+          form(action="mailer", method="post")
+            .card
+              .card-body
+                p
+                input( type="radio" name="Prefix" id="r1" value="Mr" checked=true)
+                |  Mr. 
+                input( type="radio" name="Prefix" id="r2" value="Mrs" )  
+                | Mrs. 
+                input( type="radio" name="Prefix" id="r3" value="Ms" )  
+                | Ms. 
+                input( type="radio" name="Prefix" id="r4" value="Dr" )  
+                | Dr. 
+
+
+                p.
+                | First Name:   
+                input(type="text" name="Firstname" value="")
+                | Last Name:   
+                input(type="text" name="Lastname" value="")
+
+                p.
+                | Street:   
+                input(type="text" name="Street" value="")
+                |  City:   
+                input(type="text" name="City" value="")
+
+                p.
+                | State:
+                select(name ="State" id="select")
+                  option(value="" disabled selected )| Select your Option
+                  option(value="NJ") NJ
+                  option(value="NY") NY
+                  option(value="PA") PA
+                  option(value="CT") CT
+                | Zip:
+                input(type="text" name="Zip" value="")
+
+                p.
+                | Phone: 
+                input(type="text" name="Phone" value="")
+
+                p
+                | Email:
+                input(type="text" name="Email" value="")
+
+                p.
+                | How may we contact you?
+                input(type="checkbox" name="checkphone")
+                label(for="checkphone") Phone
+                input(type="checkbox" name="checkemail")
+                label(for="checkemail") Email
+                input(type="checkbox" name="checkmail")
+                label(for="checkmail") Mail
+                input(type="checkbox" name="checkall")
+                label(for="checkall") Any
+
+                p.
+                button(type="submit").btn.btn-primary Send me a span forever
+    
+
+
+
+

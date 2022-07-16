@@ -1,0 +1,79 @@
+//- Contact Page
+extends layout
+
+block content
+
+  doctype html
+  html
+    head
+      title Contact Page 
+
+      link(rel='stylesheet' type = 'text/css' href='stylesheets/style.css')
+      script(src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin="")
+
+      link(rel="stylesheet" href="https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css")
+      script(src="  https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js")
+      script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+      script(src="/javascripts/functions.js")
+
+
+    body(onload='create_map()')
+
+      .col.col-12
+        div
+          p
+            a(href='/mailer' ).btn.btn-primary  Mailer
+            |  
+            a(href='./logout').btn.btn-warning Logout 
+            |                 
+            input(type="text" id="inputfornames" onkeyup="myname()" placeholder="Search by Names") 
+            |
+            input(type="text" id="inputforadd" onkeyup="myaddress()" placeholder="Search by Address") 
+            |
+   
+
+        div(id="table")
+          table.table.table-bordered
+            thead   
+              tr
+                th Prefix
+                th FirstName
+                th LastName
+                th Street
+                th City
+                th State
+                th ZipCode
+                th Phone
+                th Email
+                th Latitude
+                th Longitude
+                th Delete
+                th Update
+
+              each object in data
+                tr(class="tablerow" dataobject=object )
+                  td  #{object.Prefix} 
+                  td  #{object.Firstname}
+                  td  #{object.Lastname}
+                  td  #{object.Street} 
+                  td  #{object.City} 
+                  td  #{object.State} 
+                  td #{object.Zip} 
+                  td #{object.Phone} 
+                  td #{object.Email} 
+                  td #{object.Latitude}                         
+                  td #{object.Longitude}
+                  td
+                    form(action="delete", method="post")
+                      input(type="hidden" name="mongoID" value= object._id )
+                      button(type="submit").btn.btn-danger delete
+                  td    
+                    form(action="getupdateform", method="post")
+                      input(type="hidden"  name="mongoID" value= object._id )
+                      button(type="submit").btn.btn-secondary Update
+      .col.col-12
+        div(id="mapid")     
+
+

@@ -1,0 +1,27 @@
+#table{
+  align-content:center;
+  height:300px;
+  width:100%;
+  overflow:auto;
+  margin-top: 0em;
+  margin-bottom: 1em;
+}
+
+.inputfornames{
+   margin-right: 20em;
+}
+
+.inputforadd{
+  margin-right:0%;
+}
+
+#mapid{
+  
+  padding-top: 100px;
+  width:100%;
+  height: 350px;
+  
+}
+.container{
+  padding-top: 5em;
+}
